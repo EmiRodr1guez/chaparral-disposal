@@ -8,6 +8,16 @@
     "binding": "ASSETS",
     "directory": "./dist"
   },
+  // Keep the *.workers.dev preview URL alive. Without this key, wrangler
+  // disables workers.dev by default on deploy.
+  "workers_dev": true,
+  // Custom domains — re-enable once the old GitHub Pages A/CNAME records are
+  // removed from the chaparraldsllc.com zone. Cloudflare refuses to attach a
+  // custom domain while externally-managed records exist for the hostname.
+  // "routes": [
+  //   { "pattern": "chaparraldsllc.com", "custom_domain": true },
+  //   { "pattern": "www.chaparraldsllc.com", "custom_domain": true }
+  // ],
   "observability": {
     "enabled": true
   }
