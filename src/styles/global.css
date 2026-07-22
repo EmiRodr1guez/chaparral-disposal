@@ -532,3 +532,47 @@ img, svg { max-width: 100%; display: block; }
 }
 .article__cta h2 { font-size: 1.5rem; margin-bottom: .3em; }
 .article__cta p { color: var(--muted); margin-bottom: 22px; }
+
+/* =========================================================
+   Service-area map (home page)
+   ========================================================= */
+.map-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch;
+  margin-top: 8px;
+}
+.map-state, .map-detail {
+  margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 22px; display: flex; flex-direction: column;
+}
+.map-state svg, .map-detail svg { width: 100%; height: auto; flex: 1; }
+.map-state figcaption, .map-detail figcaption {
+  margin-top: 12px; text-align: center; font-size: .86rem; color: var(--muted);
+  font-family: var(--font-head); font-weight: 500;
+}
+
+/* NM state map */
+.nm-fill { fill: var(--blue-50); stroke: var(--blue-500); stroke-width: 2.5; stroke-linejoin: round; }
+.nm-name { fill: var(--blue-500); font-family: var(--font-head); font-weight: 700; font-size: 26px;
+  letter-spacing: 6px; opacity: .35; }
+.nm-glow { fill: var(--blue-500); opacity: .18; animation: nmpulse 2.6s ease-out infinite; transform-origin: center; }
+.nm-ring { fill: none; stroke: var(--blue-700); stroke-width: 2; opacity: .5; }
+.nm-dot  { fill: var(--blue-700); }
+.nm-tag  { fill: var(--ink); font-family: var(--font-head); font-weight: 600; font-size: 15px; }
+@keyframes nmpulse { 0% { r: 16; opacity: .35; } 70% { r: 42; opacity: 0; } 100% { opacity: 0; } }
+
+/* Detail map */
+.detail-bg { fill: var(--bg-soft); stroke: var(--line); stroke-width: 1.5; }
+.rio { fill: none; stroke: #7fb2e6; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: .7; }
+.rio-label { fill: #5b8fc4; font-family: var(--font-body); font-size: 10px; letter-spacing: 1px; }
+.pin__pulse { fill: var(--blue-500); opacity: .25; }
+.pin__dot { fill: var(--blue-700); stroke: #fff; stroke-width: 2; transition: r .15s ease; }
+.pin__label { fill: var(--ink); font-family: var(--font-head); font-weight: 600; font-size: 12.5px; }
+.pin--hq .pin__dot { fill: #f5a623; stroke: #fff; }
+.pin--hq .pin__pulse { fill: #f5a623; opacity: .3; animation: nmpulse 2.6s ease-out infinite; transform-origin: center; }
+.pin--hq .pin__label { fill: var(--blue-800); font-weight: 700; }
+.pin:hover .pin__dot { r: 8; }
+.pin { cursor: default; }
+
+@media (max-width: 820px) {
+  .map-wrap { grid-template-columns: 1fr; gap: 20px; }
+}
