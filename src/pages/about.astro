@@ -1,42 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Us | Chaparral Disposal Service LLC — Family Owned Since 1992</title>
-<meta name="description" content="Chaparral Disposal Service LLC is a family owned, locally operated waste company serving the Chaparral, NM valley for over 33 years with reliable, affordable service.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/img/logo.svg">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+---
+import Layout from '../layouts/Layout.astro';
+---
 
-<header class="site-header">
-  <nav class="nav container" aria-label="Primary">
-    <a class="nav__logo" href="index.html" aria-label="Chaparral Disposal Service LLC home">
-      <img src="assets/img/logo.svg" alt="Chaparral Disposal Service LLC">
-    </a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav__actions">
-      <a class="btn btn--accent" href="billing.html">Pay My Bill</a>
-    </div>
-    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
-  </nav>
-</header>
-
-<main>
-
+<Layout
+  title={"About Us | Chaparral Disposal Service LLC — Family Owned Since 1992"}
+  description={"Chaparral Disposal Service LLC is a family owned, locally operated waste company serving the Chaparral, NM valley for over 33 years with reliable, affordable service."}
+  canonical="https://chaparraldsllc.com/about"
+  cacheStrategy="static"
+>
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
+    <div class="breadcrumb"><a href="/">Home</a> / About</div>
     <span class="eyebrow">Our story</span>
     <h1>Three decades of keeping Chaparral clean</h1>
     <p>Family owned, locally operated, and dedicated to the communities we call home.</p>
@@ -50,7 +24,7 @@
       <h2>A local name you've trusted for 33 years</h2>
       <p>Chaparral Disposal Service LLC was built on a simple idea: your neighbors deserve dependable, affordable waste service delivered with real care. For more than three decades, the Gaytan family has done exactly that — showing up on time, treating customers right, and keeping our corner of New Mexico clean.</p>
       <p>We're not a faceless national chain. When you call, you reach people who live here, know these routes, and take pride in the work. That's the difference three generations of local ownership makes.</p>
-      <a class="btn btn--accent" href="contact.html" style="margin-top:12px;">Work With Us</a>
+      <a class="btn btn--accent" href="/contact" style="margin-top:12px;">Work With Us</a>
     </div>
     <div class="media-frame reveal">
       <!-- PLACEHOLDER PHOTO: swap for a real photo of your trucks / crew / the community -->
@@ -152,58 +126,10 @@
       <h2>Join the Chaparral Disposal family</h2>
       <p>Experience the reliable, friendly service that's kept our neighbors happy for over three decades.</p>
       <div class="hero__cta">
-        <a class="btn btn--accent btn--lg" href="contact.html">Get a Free Quote</a>
-        <a class="btn btn--white btn--lg" href="services.html">Explore Services</a>
+        <a class="btn btn--accent btn--lg" href="/contact">Get a Free Quote</a>
+        <a class="btn btn--white btn--lg" href="/services">Explore Services</a>
       </div>
     </div>
   </div>
 </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="assets/img/logo-white.svg" alt="Chaparral Disposal Service LLC">
-        <p class="muted">Family owned and locally operated waste collection and disposal, proudly serving the Chaparral, NM valley for over 33 years.</p>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">Residential Trash</a></li>
-          <li><a href="services.html">Commercial Dumpsters</a></li>
-          <li><a href="services.html">Disposal & Hauling</a></li>
-          <li><a href="billing.html">Pay My Bill</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+15758240887">(575) 824-0887</a></li>
-          <li><a href="mailto:chaparraldisposal@yahoo.com">chaparraldisposal@yahoo.com</a></li>
-          <li>549 North Rd, Chaparral, NM 88081</li>
-          <li>Mon–Fri, 8:00 AM – 4:30 PM</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Chaparral Disposal Service LLC. All rights reserved.</span>
-      <span>Chaparral · La Mesa · Anthony · Berino · Mesquite · Vado · Chamberino · La Union · San Miguel</span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+</Layout>

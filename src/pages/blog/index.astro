@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getArticles, formatDate, mediaUrl, type Article } from '../../lib/strapi.ts';
+
+const runtimeEnv = Astro.locals?.runtime?.env;
+const pageParam = parseInt(Astro.url.searchParams.get('page') ?? '1', 10);
+const page = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
+
+let articles: Article[] = [];
+let pageCount = 1;
+let errored = false;
+try {
+  const res = await getArticles({ limit: 12, page, runtimeEnv });
+  articles = res.data;
+  pageCount = res.meta.pagination.pageCount;
+} catch (err) {
+  console.error('Failed to load blog index:', err);
+  errored = true;
+}
+
+const prev = page > 1 ? page - 1 : null;
+const next = page < pageCount ? page + 1 : null;
+---
+
+<Layout
+  title="Blog | Chaparral Disposal Service LLC — Waste & Recycling Tips"
+  description="Tips, guides, and local updates on trash collection, recycling, dumpster rentals, and keeping the Chaparral, NM valley clean."
+  canonical="https://chaparraldsllc.com/blog"
+>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Home</a> / Blog</div>
+      <span class="eyebrow">From our team</span>
+      <h1>Tips, guides &amp; valley updates</h1>
+      <p>Practical advice on trash, recycling, and dumpster rentals — plus news from around the communities we serve.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {articles.length > 0 ? (
+          articles.map((a) => (
+            <article class="post-card reveal">
+              <div
+                class="post-card__img"
+                style={`background:linear-gradient(150deg,var(--blue-700),var(--blue-900));`}
+              >
+                {a.coverImage && (
+                  <img
+                    src={mediaUrl(a.coverImage.url, runtimeEnv)}
+                    alt={a.coverImage.alternativeText ?? ''}
+                    loading="lazy"
+                  />
+                )}
+              </div>
+              <div class="post-card__body">
+                {a.category && <span class="post-card__tag">{a.category}</span>}
+                <h3>{a.title}</h3>
+                <p>{a.excerpt}</p>
+                <div class="post-card__meta">
+                  <span>{formatDate(a.publishedAt)}</span>
+                  <a class="card__link" href={`/blog/${a.slug}`}>
+                    Read article
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        ) : (
+          <div class="blog-empty">
+            {errored
+              ? 'Articles temporarily unavailable. Please check back shortly.'
+              : 'No articles published yet — check back soon.'}
+          </div>
+        )}
+      </div>
+
+      {pageCount > 1 && (
+        <nav class="pagination" aria-label="Blog pagination">
+          {prev
+            ? <a href={prev === 1 ? '/blog' : `/blog?page=${prev}`}>← Prev</a>
+            : <span class="disabled">← Prev</span>}
+          <span class="current">Page {page} of {pageCount}</span>
+          {next
+            ? <a href={`/blog?page=${next}`}>Next →</a>
+            : <span class="disabled">Next →</span>}
+        </nav>
+      )}
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Have a topic you'd like us to cover?</h2>
+        <p>We're always happy to answer questions from the community. Reach out and we might feature it in a future post.</p>
+        <div class="hero__cta">
+          <a class="btn btn--accent btn--lg" href="/contact">Ask a Question</a>
+          <a class="btn btn--white btn--lg" href="/services">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://chaparraldsllc.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://chaparraldsllc.com/blog" }
+    ]
+  })} />
+</Layout>

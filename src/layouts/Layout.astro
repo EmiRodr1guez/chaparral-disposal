@@ -1,0 +1,179 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  /**
+   * Cache strategy for this page:
+   *  - 'dynamic' (default): short edge TTL for Strapi-backed pages (blog).
+   *  - 'static': long edge TTL for pages with no remote data (services, about, contact).
+   *  - 'none': skip header (use when the page manages caching itself, or is prerendered).
+   */
+  cacheStrategy?: 'dynamic' | 'static' | 'none';
+}
+
+const SITE = 'https://chaparraldsllc.com';
+
+const {
+  title = 'Chaparral Disposal Service LLC — Trash Collection & Dumpster Rentals in Chaparral, NM',
+  description = 'Family owned & locally operated for 33 years. Reliable residential trash collection, commercial dumpster rentals, and disposal services across Chaparral, NM and the surrounding valley.',
+  canonical = SITE + '/',
+  ogImage = SITE + '/assets/img/logo.svg',
+  cacheStrategy = 'dynamic',
+} = Astro.props;
+
+// `Astro.response` is undefined on prerendered routes — skip header writes there.
+if (Astro.response && cacheStrategy !== 'none') {
+  const header = cacheStrategy === 'static'
+    ? 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+    : 'public, s-maxage=60, stale-while-revalidate=300';
+  Astro.response.headers.set('Cache-Control', header);
+}
+
+// Active nav state
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href + '/');
+
+const NAV = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': SITE + '/#organization',
+  name: 'Chaparral Disposal Service LLC',
+  description:
+    'Family owned and locally operated waste collection and disposal serving Chaparral, NM and the surrounding valley for over 33 years.',
+  url: SITE,
+  telephone: '+1-575-824-0887',
+  email: 'chaparraldisposal@yahoo.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '549 North Rd',
+    addressLocality: 'Chaparral',
+    addressRegion: 'NM',
+    postalCode: '88081',
+    addressCountry: 'US',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '16:30',
+    },
+  ],
+  areaServed: [
+    'Chaparral, NM', 'La Mesa, NM', 'Anthony, NM', 'Berino, NM', 'Mesquite, NM',
+    'Vado, NM', 'Chamberino, NM', 'La Union, NM', 'San Miguel, NM',
+  ],
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="author" content="Chaparral Disposal Service LLC">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#214080">
+<link rel="canonical" href={canonical}>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/img/logo.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chaparral Disposal Service LLC">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={ogImage}>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="nav__logo" href="/" aria-label="Chaparral Disposal Service LLC home">
+      <img src="/assets/img/logo.svg" alt="Chaparral Disposal Service LLC" width="220" height="97">
+    </a>
+    <ul class="nav__links" id="navLinks">
+      {NAV.map((n) => (
+        <li><a href={n.href} class={isActive(n.href) ? 'active' : undefined}>{n.label}</a></li>
+      ))}
+    </ul>
+    <div class="nav__actions">
+      <a class="btn btn--accent" href="/billing">Pay My Bill</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main id="main">
+  <slot />
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="/assets/img/logo-white.svg" alt="Chaparral Disposal Service LLC" width="220" height="97">
+        <p class="muted">Family owned and locally operated waste collection and disposal, proudly serving the Chaparral, NM valley for over 33 years.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services">Residential Trash</a></li>
+          <li><a href="/services">Commercial Dumpsters</a></li>
+          <li><a href="/services">Disposal &amp; Hauling</a></li>
+          <li><a href="/billing">Pay My Bill</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15758240887">(575) 824-0887</a></li>
+          <li><a href="mailto:chaparraldisposal@yahoo.com">chaparraldisposal@yahoo.com</a></li>
+          <li>549 North Rd, Chaparral, NM 88081</li>
+          <li>Mon–Fri, 8:00 AM – 4:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>{new Date().getFullYear()}</span> Chaparral Disposal Service LLC. All rights reserved.</span>
+      <span>Chaparral · La Mesa · Anthony · Berino · Mesquite · Vado · Chamberino · La Union · San Miguel</span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/assets/js/main.js"></script>
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+</body>
+</html>

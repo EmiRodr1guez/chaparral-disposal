@@ -1,42 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Services | Chaparral Disposal Service LLC — Trash Pickup & Dumpster Rentals</title>
-<meta name="description" content="Residential trash collection, commercial dumpster rentals, and disposal & junk hauling in Chaparral, NM. Flexible, affordable, and always on time.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/img/logo.svg">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+---
+import Layout from '../layouts/Layout.astro';
+---
 
-<header class="site-header">
-  <nav class="nav container" aria-label="Primary">
-    <a class="nav__logo" href="index.html" aria-label="Chaparral Disposal Service LLC home">
-      <img src="assets/img/logo.svg" alt="Chaparral Disposal Service LLC">
-    </a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav__actions">
-      <a class="btn btn--accent" href="billing.html">Pay My Bill</a>
-    </div>
-    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
-  </nav>
-</header>
-
-<main>
-
+<Layout
+  title={"Services | Chaparral Disposal Service LLC — Trash Pickup & Dumpster Rentals"}
+  description={"Residential trash collection, commercial dumpster rentals, and disposal & junk hauling in Chaparral, NM. Flexible, affordable, and always on time."}
+  canonical="https://chaparraldsllc.com/services"
+  cacheStrategy="static"
+>
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
+    <div class="breadcrumb"><a href="/">Home</a> / Services</div>
     <span class="eyebrow">Our services</span>
     <h1>Waste solutions for homes & businesses</h1>
     <p>Whatever you need hauled away, we've got a reliable, affordable option for it — backed by 33 years of local service.</p>
@@ -96,7 +70,7 @@
         <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Residential & commercial plans</li>
         <li><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Serving 10+ valley communities</li>
       </ul>
-      <a class="btn btn--accent" href="contact.html" style="margin-top:24px;">Get My Free Quote</a>
+      <a class="btn btn--accent" href="/contact" style="margin-top:24px;">Get My Free Quote</a>
     </div>
   </div>
 </section>
@@ -112,7 +86,7 @@
       <details><summary>What areas do you service?</summary><p>We proudly serve Chaparral, La Mesa, Anthony, Berino, Mesquite, Vado, Chamberino, La Union, and San Miguel, New Mexico. Not sure if we reach you? Just give us a call.</p></details>
       <details><summary>How do I start residential trash service?</summary><p>Reach out through our contact form or call (575) 824-0887. We'll confirm your address, set your route day, and get you started — usually within a few days.</p></details>
       <details><summary>What dumpster sizes do you offer?</summary><p>We offer flexible dumpster options for businesses and job sites of all sizes. Tell us about your project and we'll recommend the right container and pickup schedule.</p></details>
-      <details><summary>How do I pay my bill?</summary><p>You can pay online quickly and securely through our <a href="billing.html">Pay My Bill</a> page, or contact our billing team at (915) 246-4689.</p></details>
+      <details><summary>How do I pay my bill?</summary><p>You can pay online quickly and securely through our <a href="/billing">Pay My Bill</a> page, or contact our billing team at (915) 246-4689.</p></details>
       <details><summary>What are your business hours?</summary><p>Our office is open Monday through Friday, 8:00 AM to 4:30 PM. You can reach us by phone during those hours, or send a message anytime through the contact form.</p></details>
     </div>
   </div>
@@ -125,58 +99,10 @@
       <h2>Let's get your service set up</h2>
       <p>Reliable pickups, fair pricing, and a local team that answers the phone. Request your free quote today.</p>
       <div class="hero__cta">
-        <a class="btn btn--accent btn--lg" href="contact.html">Get a Free Quote</a>
+        <a class="btn btn--accent btn--lg" href="/contact">Get a Free Quote</a>
         <a class="btn btn--white btn--lg" href="tel:+15758240887">Call (575) 824-0887</a>
       </div>
     </div>
   </div>
 </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="assets/img/logo-white.svg" alt="Chaparral Disposal Service LLC">
-        <p class="muted">Family owned and locally operated waste collection and disposal, proudly serving the Chaparral, NM valley for over 33 years.</p>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">Residential Trash</a></li>
-          <li><a href="services.html">Commercial Dumpsters</a></li>
-          <li><a href="services.html">Disposal & Hauling</a></li>
-          <li><a href="billing.html">Pay My Bill</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+15758240887">(575) 824-0887</a></li>
-          <li><a href="mailto:chaparraldisposal@yahoo.com">chaparraldisposal@yahoo.com</a></li>
-          <li>549 North Rd, Chaparral, NM 88081</li>
-          <li>Mon–Fri, 8:00 AM – 4:30 PM</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Chaparral Disposal Service LLC. All rights reserved.</span>
-      <span>Chaparral · La Mesa · Anthony · Berino · Mesquite · Vado · Chamberino · La Union · San Miguel</span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+</Layout>
