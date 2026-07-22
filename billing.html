@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay My Bill | Chaparral Disposal Service LLC</title>
+<meta name="description" content="Pay your Chaparral Disposal Service bill online — quick, secure, and convenient. Or reach our billing team at (915) 246-4689.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="nav__logo" href="index.html" aria-label="Chaparral Disposal Service LLC home">
+      <img src="assets/img/logo.svg" alt="Chaparral Disposal Service LLC">
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a class="btn btn--accent" href="billing.html">Pay My Bill</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Pay My Bill</div>
+    <span class="eyebrow">Billing</span>
+    <h1>Pay your bill, your way</h1>
+    <p>Fast, secure, and convenient options to keep your account current.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+    <div class="pay-card reveal">
+      <div class="pay-card__head">
+        <h2>Make a Payment</h2>
+        <p>Choose the option that works best for you.</p>
+      </div>
+      <div class="pay-card__body">
+
+        <!-- Online payment (primary) -->
+        <a class="pay-method" href="#" id="payOnline" style="border-color:var(--blue-500);background:var(--blue-50);">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+          <div style="flex:1;">
+            <b>Pay Online</b>
+            <small>Credit / debit card &amp; e-check — secure portal</small>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <!-- Pay by phone -->
+        <a class="pay-method" href="tel:+19152464689">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div style="flex:1;">
+            <b>Pay by Phone</b>
+            <small>Call our billing team at (915) 246-4689</small>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <!-- Pay by mail -->
+        <a class="pay-method" href="#" id="payMail">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg></span>
+          <div style="flex:1;">
+            <b>Pay by Mail</b>
+            <small>549 North Rd, Chaparral, NM 88081</small>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <p class="form-note" style="text-align:center;margin-top:22px;">
+          Questions about your invoice? Email
+          <a href="mailto:chaparraldisposal@yahoo.com">chaparraldisposal@yahoo.com</a>
+          or call <a href="tel:+19152464689">(915) 246-4689</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Reassurance -->
+    <div class="grid grid-3 reveal" style="margin-top:44px;max-width:900px;margin-inline:auto;">
+      <div class="card center">
+        <div class="card__ic" style="margin-inline:auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Secure</h3>
+        <p>Your payment details are protected with encrypted, industry-standard security.</p>
+      </div>
+      <div class="card center">
+        <div class="card__ic" style="margin-inline:auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Fast</h3>
+        <p>Pay in under a minute — no account or login required to make a payment.</p>
+      </div>
+      <div class="card center">
+        <div class="card__ic" style="margin-inline:auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Flexible</h3>
+        <p>Pay online, by phone, or by mail — whatever's most convenient for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/img/logo-white.svg" alt="Chaparral Disposal Service LLC">
+        <p class="muted">Family owned and locally operated waste collection and disposal, proudly serving the Chaparral, NM valley for over 33 years.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Residential Trash</a></li>
+          <li><a href="services.html">Commercial Dumpsters</a></li>
+          <li><a href="services.html">Disposal & Hauling</a></li>
+          <li><a href="billing.html">Pay My Bill</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15758240887">(575) 824-0887</a></li>
+          <li><a href="mailto:chaparraldisposal@yahoo.com">chaparraldisposal@yahoo.com</a></li>
+          <li>549 North Rd, Chaparral, NM 88081</li>
+          <li>Mon–Fri, 8:00 AM – 4:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Chaparral Disposal Service LLC. All rights reserved.</span>
+      <span>Chaparral · La Mesa · Anthony · Berino · Mesquite · Vado · Chamberino · La Union · San Miguel</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  // Placeholder handlers — replace the online payment href with the client's
+  // real payment-processor link (e.g. Stripe/Square/PayPal or their billing portal).
+  document.getElementById('payOnline').addEventListener('click', function (e) {
+    e.preventDefault();
+    alert('Online payment portal link goes here.\n\nReplace this with your payment processor URL (Stripe, Square, PayPal, or your billing portal).');
+  });
+  document.getElementById('payMail').addEventListener('click', function (e) {
+    e.preventDefault();
+    alert('Mail your check or money order to:\n\nChaparral Disposal Service LLC\n549 North Rd\nChaparral, NM 88081');
+  });
+</script>
+</body>
+</html>
