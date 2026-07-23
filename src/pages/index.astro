@@ -139,89 +139,36 @@ import Layout from '../layouts/Layout.astro';
       <p>Reliable, affordable waste collection across Chaparral and the surrounding New Mexico communities.</p>
     </div>
 
-    <div class="map-wrap reveal">
-      <figure class="map-state" aria-label="Map of New Mexico with the Chaparral service area highlighted in the south near El Paso">
+    <div class="serve reveal">
+      <figure class="serve__map" aria-label="Map of New Mexico with the Chaparral service area highlighted in the south">
         <svg viewBox="0 0 512 572" role="img" xmlns="http://www.w3.org/2000/svg">
-          <path class="nm-fill" d="M30.4,30.0 L481.2,30.0 L481.2,480.0 L211.3,480.0 L218.0,499.5 L92.8,499.5 L92.8,540.0 L30.4,540.0 Z"/>
-          <circle class="nm-glow" cx="214.3" cy="475.5" r="30"/>
-          <circle class="nm-ring" cx="214.3" cy="475.5" r="16"/>
-          <circle class="nm-dot"  cx="214.3" cy="475.5" r="6"/>
-          <text class="nm-tag" x="190.3" y="447.5" text-anchor="end">Our service area</text>
-          <text class="nm-name" x="230" y="150" text-anchor="middle">NEW MEXICO</text>
+          <path class="nm-fill" d="M30.4,30 L481.2,30 L481.2,480 L211.3,480 L218,499.5 L92.8,499.5 L92.8,540 L30.4,540 Z"/>
+          <text class="nm-name" x="250" y="238" text-anchor="middle">New&#160;Mexico</text>
+          <circle class="nm-halo" cx="214.3" cy="475.5" r="27"/>
+          <circle class="nm-glow" cx="214.3" cy="475.5" r="27"/>
+          <circle class="nm-dot"  cx="214.3" cy="475.5" r="7"/>
+          <text class="nm-tag" x="231" y="480.5" text-anchor="start">Chaparral</text>
         </svg>
         <figcaption>Southern New Mexico &middot; Doña Ana County</figcaption>
       </figure>
 
-      <figure class="map-detail" aria-label="Detailed map showing the nine communities served">
-        <svg viewBox="0 0 380 420" role="img" xmlns="http://www.w3.org/2000/svg">
-          <rect class="detail-bg" x="6" y="6" width="368" height="408" rx="16"/>
-          <polyline class="rio" points="55.0,72.8 62.9,60.6 94.7,103.1 75.3,139.6 126.5,185.7 144.1,253.7 90.3,333.9"/>
-          <text class="rio-label" x="61.3" y="139.6" text-anchor="middle" transform="rotate(-90 61.3 139.6)">Rio Grande</text>
-      <g class="pin pin--hq">
-        <circle class="pin__pulse" cx="311.8" cy="208.8" r="7"/>
-        <circle class="pin__dot" cx="311.8" cy="208.8" r="7"/>
-        <text class="pin__label" x="298.8" y="212.8" text-anchor="end">Chaparral (HQ)</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="55.0" cy="72.8" r="5"/>
-        <circle class="pin__dot" cx="55.0" cy="72.8" r="5"/>
-        <text class="pin__label" x="66.0" y="86.8" text-anchor="start">San Miguel</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="62.9" cy="60.6" r="5"/>
-        <circle class="pin__dot" cx="62.9" cy="60.6" r="5"/>
-        <text class="pin__label" x="73.9" y="57.6" text-anchor="start">Mesquite</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="55.9" cy="116.5" r="5"/>
-        <circle class="pin__dot" cx="55.9" cy="116.5" r="5"/>
-        <text class="pin__label" x="66.9" y="120.5" text-anchor="start">La Mesa</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="94.7" cy="103.1" r="5"/>
-        <circle class="pin__dot" cx="94.7" cy="103.1" r="5"/>
-        <text class="pin__label" x="105.7" y="100.1" text-anchor="start">Vado</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="75.3" cy="139.6" r="5"/>
-        <circle class="pin__dot" cx="75.3" cy="139.6" r="5"/>
-        <text class="pin__label" x="86.3" y="144.6" text-anchor="start">Chamberino</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="126.5" cy="185.7" r="5"/>
-        <circle class="pin__dot" cx="126.5" cy="185.7" r="5"/>
-        <text class="pin__label" x="137.5" y="189.7" text-anchor="start">Berino</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="144.1" cy="253.7" r="5"/>
-        <circle class="pin__dot" cx="144.1" cy="253.7" r="5"/>
-        <text class="pin__label" x="155.1" y="257.7" text-anchor="start">Anthony</text>
-      </g>
-      <g class="pin">
-        <circle class="pin__pulse" cx="90.3" cy="333.9" r="5"/>
-        <circle class="pin__dot" cx="90.3" cy="333.9" r="5"/>
-        <text class="pin__label" x="101.3" y="337.9" text-anchor="start">La Union</text>
-      </g>
-        </svg>
-        <figcaption>9 communities we proudly serve</figcaption>
-      </figure>
+      <div class="serve__list">
+        <h3>9 communities, one local team</h3>
+        <p>Dependable weekly pickups and dumpster service across the whole Chaparral valley.</p>
+        <ul class="serve__towns">
+          <li class="is-hq"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Chaparral <span class="hq-badge">HQ</span></li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> La Mesa</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Anthony</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Berino</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Mesquite</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Vado</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Chamberino</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> La Union</li>
+          <li><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> San Miguel</li>
+        </ul>
+        <p class="serve__note">Not sure if we reach your neighborhood? <a href="/contact">Ask us</a> or call <a href="tel:+15758240887">(575)&nbsp;824-0887</a>.</p>
+      </div>
     </div>
-
-    <div class="chips reveal" style="margin-top:34px;">
-      <span class="chip">Chaparral, NM</span>
-      <span class="chip">La Mesa, NM</span>
-      <span class="chip">Anthony, NM</span>
-      <span class="chip">Berino, NM</span>
-      <span class="chip">Mesquite, NM</span>
-      <span class="chip">Vado, NM</span>
-      <span class="chip">Chamberino, NM</span>
-      <span class="chip">La Union, NM</span>
-      <span class="chip">San Miguel, NM</span>
-    </div>
-    <p class="center" style="margin-top:20px;color:var(--muted);">
-      Not sure if we reach your neighborhood? <a href="/contact">Ask us</a> or call
-      <a href="tel:+15758240887">(575)&nbsp;824-0887</a>.
-    </p>
   </div>
 </section>
 
