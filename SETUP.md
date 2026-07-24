@@ -15,6 +15,28 @@ access needs to provision a Strapi instance there, the same way `client1` was se
 Until that exists, `/blog` renders "Articles temporarily unavailable" — by design, the
 site never hard-fails on a Strapi outage.
 
+### Gotcha: uploads directory ownership
+
+Each tenant bind-mounts a host dir for media:
+`/data/strapi-uploads/<tenant>:/opt/app/public/uploads`
+
+The Strapi container runs as the **`node` user (uid/gid 1000)**, so that host directory
+**must be owned by `1000:1000`**. If it's created with plain `mkdir` as root, image
+uploads fail in the admin with a misleading **"Unexpected end of JSON input"**, and the
+container log shows the real cause:
+
+```
+Error: EACCES: permission denied, open '/opt/app/public/uploads/<file>.png'
+```
+
+Fix (no restart needed — permissions apply live):
+
+```bash
+chown -R 1000:1000 /data/strapi-uploads/<tenant>
+```
+
+Always run that right after creating the directory for a new tenant.
+
 ---
 
 ## 1. Strapi side (~10 minutes)
